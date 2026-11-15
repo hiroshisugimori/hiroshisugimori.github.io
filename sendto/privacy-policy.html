@@ -36,13 +36,13 @@ footer { margin-top: 36px; padding-top: 20px; border-top: 1px solid #ded7ed; }
 <header>
 <p class="meta">SendTo · Android · <code>jp.hamsoft.sendto</code></p>
 <h1>プライバシーポリシー<br><span lang="en">Privacy Policy</span></h1>
-<p class="meta">最終更新日 / <span lang="en">Last updated</span>: <time datetime="2026-10-24">2026-10-24</time></p>
+<p class="meta">最終更新日 / <span lang="en">Last updated</span>: <time datetime="2026-11-16">2026-11-16</time></p>
 <nav aria-label="言語 / Language"><a href="#ja" lang="ja">日本語</a><a href="#en" lang="en">English</a></nav>
 </header>
 <section id="ja" lang="ja" aria-labelledby="ja-title">
 <h2 id="ja-title">日本語</h2>
 <h3>1. 適用範囲・お問い合わせ</h3>
-<p>本ポリシーは、SendTo開発者（以下「開発者」）が提供するAndroidアプリ「SendTo」に適用されます。SendToは、利用者が選択したファイルを、指定したSMBサーバー／NASやGoogle Driveへコピー・移動するアプリです。SendTo独自のアカウント登録はありません。</p>
+<p>本ポリシーは、SendTo開発者（以下「開発者」）が提供するAndroidアプリ「SendTo」に適用されます。SendToは、利用者が選択したファイルを、指定したSMBサーバー／NAS、Google Drive、OneDriveへコピー・移動・ZIPコピーするアプリです。SendTo独自のアカウント登録はありません。</p>
 <p>個人情報の取り扱いに関するお問い合わせ：<a href="mailto:hamsoft2026@gmail.com">hamsoft2026@gmail.com</a>（SendTo開発者）</p>
 <h3>2. アプリが取り扱う情報と利用目的</h3>
 <ul>
@@ -52,7 +52,10 @@ footer { margin-top: 36px; padding-top: 20px; border-top: 1px solid #ded7ed; }
 <li><strong>設定・端末の状態：</strong>表示設定、Wi-Fi未接続時の警告サイズ、購入状態などを端末に保存します。警告を表示するためネットワークの接続状態を確認します。この確認のためにGPS位置情報を取得することはありません。</li>
 <li><strong>共有ショートカット：</strong>保存先の表示名とアプリ内の識別子をAndroidへ渡し、共有先候補として表示します。SMBパスワードをショートカットに含めることはありません。</li>
 </ul>
-<h3>3. ファイル転送・Google Driveへのアクセス</h3>
+<h3>3. ファイル転送・クラウドへのアクセス</h3>
+<p>OneDrive連携ではMicrosoft Authentication Library（MSAL）で認証し、Microsoft Graphの委任権限<code>Files.ReadWrite</code>を要求します。この権限は、サインインした利用者のファイルの読み書きを許可するものです。SendToでは自分のOneDrive内のフォルダ一覧・名前・ID・親子関係の取得、フォルダ作成、重複名確認、選択ファイルのアップロードに使用します。MicrosoftアカウントのパスワードをSendToが取得・保存することはありません。</p>
+<p>Microsoftアカウントの識別子・表示用メールアドレス・ドライブID・保存先フォルダIDを端末に保存します。認証トークンはMSALが管理し、認証情報の更新のためMicrosoftと通信します。ファイルはHTTPSでMicrosoft GraphまたはMicrosoftが指定するアップロード先へ送信します。OneDriveの情報を広告ターゲティングや機械学習の学習に使用しません。</p>
+<p>ZIP作成やOneDriveへのアップロード準備では、選択したファイルの一時コピーをアプリのキャッシュ領域に作成する場合があります。一時ファイルは処理終了・失敗・キャンセル時に削除します。アプリが強制終了した場合はキャッシュに残る場合があります。</p>
 <p>選択したファイルと転送に必要な情報は、端末から利用者が指定した保存先へ送信されます。開発者はファイル転送用の中継サーバーを運営しておらず、利用者のファイルやSMB認証情報を開発者のサーバーへ自動送信する仕組みはありません。SMB接続には指定したサーバーとの認証が伴います。</p>
 <p>Google Drive連携ではOAuthの<code>drive.file</code>権限を使用します。アクセス対象はSendToが作成したファイル・フォルダ、または利用者がSendToに利用を許可した対象に限定され、Drive全体への包括的なアクセス権限を要求しません。許可範囲でフォルダの一覧・名前・ID・親子関係を参照し、フォルダ作成、重複名確認、ファイルのアップロードを行います。</p>
 <p>Google APIから取得した情報は利用者向けのファイル転送・保存先管理に使用し、広告ターゲティング、販売、機械学習モデルの学習には使用しません。SendToによるGoogle API情報の利用・他のアプリへの転送は、Limited Use要件を含む<a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>に従います。</p>
@@ -65,17 +68,19 @@ footer { margin-top: 36px; padding-top: 20px; border-top: 1px solid #ded7ed; }
 <p>広告非表示はGoogle Playを通じた1回限りの非消費型購入（商品ID：<code>remove_ads</code>）です。購入の確認、承認、復元のため、商品ID、購入トークン、購入状態、承認状態を処理し、端末にライセンス状態を保存します。支払いはGoogle Playが処理し、SendToはクレジットカード番号や銀行口座情報を取得しません。Googleによる購入記録の保存・取り扱いにはGoogleの規約・ポリシーが適用されます。</p>
 <h3>6. 保存・安全管理</h3>
 <p>保存先や設定はアプリの端末内データ領域に保存されます。SMBパスワードにはAndroid Keystoreを利用した暗号化保存を使用しますが、保存先の名前やパスなどすべての情報を個別に暗号化しているわけではありません。Androidのバックアップ・端末移行設定に応じてアプリのデータがバックアップ・復元の対象になる場合があります。</p>
-<p>GoogleのWeb APIとの通信にはHTTPSを使用します。SMB通信の保護はサーバー設定や接続時の取り決めに依存し、すべてのSMB転送が暗号化されることを保証しません。接続先とネットワークは利用者が管理・確認してください。</p>
+<p>GoogleおよびMicrosoftのWeb APIとの通信にはHTTPSを使用します。SMB通信の保護はサーバー設定や接続時の取り決めに依存し、すべてのSMB転送が暗号化されることを保証しません。接続先とネットワークは利用者が管理・確認してください。</p>
 <h3>7. 保持期間・削除・利用者による管理</h3>
 <ul>
 <li>保存先情報は、保存先を削除するまで端末に保持されます。保存先を削除すると、その設定と対応する保存済みSMBパスワードを削除し、対応する共有ショートカットの削除・無効化をAndroidへ要求します。</li>
 <li>その他の端末内設定は、設定変更、Androidからのアプリデータ削除、アンインストール等で削除・変更できます。バックアップ内の情報は端末やバックアップサービスの設定で管理してください。</li>
-<li>NASやGoogle Driveに転送したファイルは、保存先やアプリを削除しても消えません。保存先のサービスや管理機能で別途削除してください。</li>
+<li>NAS、Google Drive、OneDriveに転送したファイルは、保存先やアプリを削除しても消えません。保存先のサービスや管理機能で別途削除してください。</li>
 <li>Google Driveへの許可は<a href="https://myaccount.google.com/connections">Googleアカウントの接続管理</a>で取り消せます。許可の取り消しは転送済みファイルの削除を意味せず、アプリ内の保存先削除だけではGoogleへの許可は取り消されません。</li>
 <li>Googleが保有する広告・購入等の記録はGoogleの保持方針に従います。アプリデータの削除は購入の取り消し・返金にはなりません。</li>
 </ul>
 <p>問い合わせメールでは、送信元メールアドレス、本文、任意の添付情報を受け取り、回答と問題調査のために使用し、その目的や適用される義務に必要な期間保持します。不要なパスワードや機密ファイルは送らないでください。開発者が保有する問い合わせ情報の確認・削除については上記連絡先にお問い合わせください。開発者が保有していない端末・保存先の情報は、利用者自身で管理してください。</p>
+<p>OneDriveの「連携解除」は、このアプリでMSALが管理する該当アカウントの認証情報を削除します。同じアカウントを使う他の保存先では再接続が必要です。保存先の削除だけではMicrosoftの認可は解除されず、OneDriveへ転送済みのファイルも削除されません。Microsoftアカウント側でもアプリのアクセス許可を管理できます。</p>
 <h3>8. 外部サービス・本ページ・変更</h3>
+<p>OneDriveおよびMicrosoft認証サービスの情報の取り扱いは、<a href="https://privacy.microsoft.com/privacystatement">Microsoftプライバシーステートメント</a>もご確認ください。</p>
 <p>Googleによる情報の取り扱いは<a href="https://policies.google.com/privacy">Googleプライバシーポリシー</a>および<a href="https://policies.google.com/technologies/partner-sites">Googleのサービスを使用するアプリからの情報利用</a>をご参照ください。保存先や外部サービスでは、各サービスの管理者による取り扱いも適用されます。</p>
 <p>このページ自体には広告やアクセス解析スクリプトを組み込んでいません。公開先のGitHub Pagesは、セキュリティのため閲覧者のIPアドレスを記録・保存します。詳しくは<a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHubのプライバシーに関する声明</a>をご確認ください。</p>
 <p>機能や情報の取り扱いの変更に応じて本ポリシーを更新し、このページに変更後の内容と最終更新日を掲載します。</p>
@@ -83,7 +88,7 @@ footer { margin-top: 36px; padding-top: 20px; border-top: 1px solid #ded7ed; }
 <section id="en" lang="en" aria-labelledby="en-title">
 <h2 id="en-title">English</h2>
 <h3>1. Scope and contact</h3>
-<p>This policy applies to SendTo for Android, provided by the developer of SendTo (“the developer”). SendTo copies or moves files you select to an SMB server/NAS or Google Drive destination you specify. There is no separate SendTo account registration.</p>
+<p>This policy applies to SendTo for Android, provided by the developer of SendTo (“the developer”). SendTo copies, moves, or ZIP-compresses and copies files you select to an SMB server/NAS, Google Drive, or OneDrive destination you specify. There is no separate SendTo account registration.</p>
 <p>For privacy inquiries, contact the developer of SendTo at <a href="mailto:hamsoft2026@gmail.com">hamsoft2026@gmail.com</a>.</p>
 <h3>2. Information handled and purposes</h3>
 <ul>
@@ -93,7 +98,10 @@ footer { margin-top: 36px; padding-top: 20px; border-top: 1px solid #ded7ed; }
 <li><strong>Settings and device state:</strong> Display preferences, the warning threshold for transfers without Wi-Fi, and license status are stored on your device. Network connection state is checked to display warnings; this check does not obtain GPS location.</li>
 <li><strong>Sharing shortcuts:</strong> Destination labels and internal identifiers are provided to Android to display sharing suggestions. Shortcuts do not include SMB passwords.</li>
 </ul>
-<h3>3. File transfers and Google Drive access</h3>
+<h3>3. File transfers and cloud access</h3>
+<p>OneDrive sign-in uses Microsoft Authentication Library (MSAL) and the delegated Microsoft Graph permission <code>Files.ReadWrite</code>, which permits reading and writing the signed-in user's files. SendTo uses it to browse folders in your own OneDrive, read names, IDs and parent relationships, create folders, check duplicate names, and upload selected files. SendTo does not obtain or store your Microsoft account password.</p>
+<p>The app stores the Microsoft account identifier, display email address, drive ID, and destination folder ID on your device. MSAL manages authentication tokens and communicates with Microsoft to renew authentication. Files are sent over HTTPS to Microsoft Graph or the upload endpoint provided by Microsoft. OneDrive information is not used for advertising targeting or training machine learning models.</p>
+<p>Creating ZIP archives and preparing OneDrive uploads may create temporary copies of selected files in the app cache. These are deleted when processing finishes, fails, or is cancelled. Files may remain in the cache if the app is forcibly terminated.</p>
 <p>Selected files and necessary transfer information are sent from your device to your chosen destination. The developer does not operate a file-transfer relay server, and the app does not automatically send your files or SMB credentials to a developer server. SMB connections involve authentication with your chosen server.</p>
 <p>Google Drive integration uses the OAuth <code>drive.file</code> scope. Access is limited to files and folders created by SendTo or authorized by you for use with SendTo, rather than unrestricted access to your entire Drive. Within that scope, SendTo reads folder listings, names, IDs, and parent relationships, creates folders, checks duplicate names, and uploads files.</p>
 <p>Information obtained through Google APIs is used for user-facing file transfers and destination management, not advertising targeting, sale, or training machine learning models. SendTo's use and transfer to other apps of information received from Google APIs adheres to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including its Limited Use requirements.</p>
@@ -106,17 +114,19 @@ footer { margin-top: 36px; padding-top: 20px; border-top: 1px solid #ded7ed; }
 <p>Ad removal is a one-time, non-consumable Google Play purchase (product ID: <code>remove_ads</code>). SendTo processes product IDs, purchase tokens, purchase status, and acknowledgment status to verify, acknowledge, and restore purchases, and stores license status on your device. Google Play handles payments; SendTo does not obtain credit card numbers or bank account details. Google's terms and policies govern Google's purchase records.</p>
 <h3>6. Storage and security</h3>
 <p>Destinations and settings are stored in the app's on-device data area. SMB passwords are encrypted using Android Keystore-backed storage. Other information, such as destination names and paths, is not all individually encrypted. App data may be included in Android backup and device migration according to device and backup settings.</p>
-<p>Connections to Google's web APIs use HTTPS. SMB protection depends on server configuration and connection negotiation; not every SMB transfer is guaranteed to be encrypted. You are responsible for choosing and managing the destination and network.</p>
+<p>Connections to Google's and Microsoft's web APIs use HTTPS. SMB protection depends on server configuration and connection negotiation; not every SMB transfer is guaranteed to be encrypted. You are responsible for choosing and managing the destination and network.</p>
 <h3>7. Retention, deletion, and your controls</h3>
 <ul>
 <li>Destination information remains on your device until you delete the destination. Deletion removes its settings and associated stored SMB password and requests Android to remove/disable the corresponding sharing shortcuts.</li>
 <li>Other local settings can be changed or removed through settings changes, Android's app-data deletion, or uninstallation. Manage backup copies through your device or backup service settings.</li>
-<li>Deleting a destination or uninstalling SendTo does not delete files transferred to a NAS or Google Drive. Delete these separately using the destination's management tools.</li>
+<li>Deleting a destination or uninstalling SendTo does not delete files transferred to a NAS, Google Drive, or OneDrive. Delete these separately using the destination's management tools.</li>
 <li>You can revoke Drive authorization through <a href="https://myaccount.google.com/connections">Google Account connections</a>. Revoking access does not delete transferred files. Deleting a destination within SendTo does not itself revoke Google's authorization.</li>
 <li>Google retains advertising and purchase records according to its own policies. Clearing app data does not cancel or refund a purchase.</li>
 </ul>
 <p>If you email support, the developer receives your email address, message, and any optional attachments, uses them to respond and investigate issues, and retains them as necessary for these purposes and applicable obligations. Do not send unnecessary passwords or confidential files. Contact the address above to inquire about or request deletion of support information held by the developer. You manage information on your device and destinations that the developer does not possess.</p>
+<p>Disconnecting OneDrive removes the account credentials managed by MSAL for this app. Other destinations using that account will need reconnection. Deleting a destination alone does not revoke Microsoft authorization or delete files already transferred to OneDrive. You can also manage app permissions through your Microsoft account.</p>
 <h3>8. External services, this page, and changes</h3>
+<p>See the <a href="https://privacy.microsoft.com/privacystatement">Microsoft Privacy Statement</a> for OneDrive and Microsoft authentication services.</p>
 <p>See <a href="https://policies.google.com/privacy">Google's Privacy Policy</a> and <a href="https://policies.google.com/technologies/partner-sites">how Google uses information from apps using its services</a>. Information at destinations or external services is also subject to those services' operators and policies.</p>
 <p>This page contains no advertising or analytics scripts. Its host, GitHub Pages, logs and stores visitors' IP addresses for security purposes. See the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub General Privacy Statement</a>.</p>
 <p>This policy will be updated as features or information practices change. The revised policy and last-updated date will be posted on this page.</p>
