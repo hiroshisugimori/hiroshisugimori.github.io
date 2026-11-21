@@ -3,3 +3,5 @@
 .prompt{background:linear-gradient(145deg,#192e30,#101722)}.editor{font-family:monospace;background:#183f38;border-color:#3e7063;color:#a2eed5;font-size:25px}
 
 .sendto{background:linear-gradient(145deg,#29213d,#101722)}.sendto-icon{object-fit:contain;background:#211735;border-color:#685187;flex-shrink:0}.sendto-note{font-size:12px}
+
+.aihub{background:linear-gradient(145deg,#172b42,#101722)}.aihub-icon{object-fit:contain;background:#0b4bbc;border-color:#366aa4;flex-shrink:0}.aihub-note{font-size:12px}
